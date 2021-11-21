@@ -5,7 +5,7 @@ import Button from './Button';
 const Task = (props) => {
     console.log(props)
     return (
-        <div className={`task ${props.reminder ? 'reminder' : ''}`} style={{borderStyle: 'groove ', width:'300px', marginBottom:'10px', color:'black', backgroundColor:'lightgrey'}} 
+        <div className={`task-${props.reminder ? 'reminder' : ''}`} style={{borderStyle: 'groove ', width:'300px', marginBottom:'10px', color:'black', backgroundColor:'lightgrey'}} 
             >
             
             <h2 > {props.id} <FaTimes style={{color:'red', cursor:'pointer'}} onClick= {() => props.onDelete(props.id)}/> </h2>

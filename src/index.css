@@ -33,3 +33,7 @@ code {
   align-items: center;
   
 }
+.task-reminder{
+  border: 10px solid;
+  border-color: greenyellow;
+}
