@@ -11,23 +11,37 @@ const Tasks = () => {
     }
     
     const deleteTask = (id) => {
+
         const restTaks = tasks.filter(task => task.id !== id);
-        console.log(restTaks)
         setTasks(restTaks);
         
     }
 
+    // Toggle task reminder 
+    const toggleReminder = (id) =>{
+        console.log(id);
+        setTasks(tasks.map(task => task.id==id ? {...task,reminder:!task.reminder} : task)) 
+        console.log(tasks)
+    }
+
     return (
-        <div className="tasks">
+        <div className="tasks" style={{marginLeft:'30%',padding:'1%' , width: '40%', borderStyle: 'groove '}}>
             { 
-                tasks.map(task=> (
-                    <div  className="task">
-                        <Task  id={task.id} text={task.text} day={task.day} onDelete={deleteTask} />
-                        <Button value='Update' className='btn-update' />
-                        <Button value='Delete' className='btn-delete' />
-                    </div>
-                    )
-                )
+                
+                tasks.length > 0 ? 
+                    (
+                        tasks.map(task=> (
+                            <>
+                                <Task  id={task.id} text={task.text} day={task.day} reminder={task.reminder} onDelete={deleteTask} onToggle={toggleReminder}/>
+                                
+                            </>    
+                            
+                            )
+                        )
+                    ) : ( 'No tasks to show')
+
+                        
+            
 
             }
 

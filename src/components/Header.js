@@ -12,8 +12,9 @@ const Header = (props) => {
 
     return (
         <header className="header">
-            <h1>{props.title}</h1>
-            <Button className="Button-add" value="ADD TASK"  onClick={handleAddTask} />
+
+            <h1 style={{marginLeft:"45%"}} >{props.title}</h1>
+            
             
         </header>
     )
